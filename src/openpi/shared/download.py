@@ -284,6 +284,8 @@ def _ensure_permissions(path: pathlib.Path) -> None:
             _set_permission(file_path, file_rw)
 
     _setup_folder_permission_between_cache_dir_and_path(path)
+    if path.is_file():
+        _set_file_permission(path)
     for root, dirs, files in os.walk(str(path)):
         root_path = pathlib.Path(root)
         for file in files:
