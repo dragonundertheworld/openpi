@@ -186,7 +186,7 @@ def preprocess_observation(
     for key in out_images:
         if key not in observation.image_masks:
             # do not mask by default
-            out_masks[key] = jnp.ones(batch_shape, dtype=jnp.bool)
+            out_masks[key] = jnp.ones(batch_shape, dtype=jnp.bool_)
         else:
             out_masks[key] = jnp.asarray(observation.image_masks[key])
 
